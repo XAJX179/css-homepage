@@ -1,3 +1,18 @@
 :root {
   background-color: lightgreen;
+  font-family: "PlayfairDisplay";
+}
+
+@font-face {
+  font-family: "Roboto";
+  src:
+    url("./fonts/Roboto-Medium.woff2") format("woff2"),
+    url("./fonts/Roboto-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "PlayfairDisplay";
+  src:
+    url("./fonts/PlayfairDisplay-Regular.woff2") format("woff2"),
+    url("./fonts/PlayfairDisplay-Regular.woff") format("woff");
 }
