@@ -93,6 +93,8 @@ h6 {
   --about-card-padding: 0 2rem;
   --about-card-img-ratio: 11/12;
   --about-card-img-width: 38.5vw;
+  --footer-img-width: 50.5vw;
+  --footer-img-ratio: 30/23;
 
   --icon-height: calc(var(--header-para-font-size) + 10px);
   --small-icon-height: var(--header-para-font-size);
@@ -120,8 +122,12 @@ h6 {
 body {
   margin: var(--body-margin);
   font-family: var(--fancy-font);
-  background: linear-gradient(165deg,
-      #0891b2 5%,
+  background-image:
+    linear-gradient(165deg,
+      #0891b2 25%,
+      rgb(0 0 0 / 0) 0%),
+    linear-gradient(to top,
+      #0891b2 25%,
       rgb(0 0 0 / 0) 0%);
 }
 
@@ -211,6 +217,7 @@ main ul li {
   height: 60%;
   display: flex;
   align-items: center;
+  text-align: center;
   justify-content: center;
   font-size: var(--h2-font-size);
   padding: var(--screenshot-padding);
@@ -243,4 +250,45 @@ main li>p {
 
 .small-icon {
   max-width: var(--small-icon-height);
+}
+
+footer {
+  display: flex;
+  gap: 1rem;
+  background: #0891b2;
+  color: white;
+  padding: var(--about-card-padding);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+footer a,
+footer p {
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+  font-family: var(--reading-font);
+  font-size: var(--header-para-font-size);
+}
+
+footer>img {
+  object-fit: cover;
+  aspect-ratio: var(--footer-img-ratio);
+  max-width: var(--footer-img-width);
+  box-shadow: var(--shadow);
+}
+
+.phone,
+.email {
+  display: flex;
+  gap: 1rem;
+}
+
+footer nav {
+  display: flex;
+  gap: 2rem;
 }
