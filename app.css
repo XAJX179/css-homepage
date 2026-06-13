@@ -95,6 +95,7 @@ h6 {
   --about-card-img-width: 38.5vw;
 
   --icon-height: calc(var(--header-para-font-size) + 10px);
+  --small-icon-height: var(--header-para-font-size);
 
   /* --caption-font-size: clamp(1rem, 10.5rem, 111rem); */
   --caption-font-size: clamp(1rem, 6.55vi + 0.02rem, 10.5rem);
@@ -103,7 +104,15 @@ h6 {
   /* --header-para-font-size: clamp(0.2rem, 2.85rem, 111rem); */
   --header-para-font-size: clamp(0.85rem, 1.79vi + -0.01rem, 2.85rem);
 
+  /* --h2-font-size: clamp(1rem, 2rem, 111rem); */
+  --h2-font-size: clamp(2rem, 2.68vi + 0.71rem, 5rem);
+
   --header-margin: 5% 0;
+  --mywork-margin: 10% 0;
+  --project-card-ratio: 83/100;
+  --screenshot-padding: 3rem;
+
+  --project-card-padding: 1rem;
 
   --shadow: 0 0 10px rgb(0 0 0 / 20%);
 }
@@ -170,4 +179,68 @@ header nav {
   align-self: end;
   display: flex;
   gap: 2rem;
+}
+
+main {
+  margin: var(--mywork-margin);
+  padding: var(--about-card-padding);
+}
+
+main ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(min-content, max-content));
+  grid-template-rows: min-content min-content;
+  gap: 3rem;
+  list-style: none;
+  padding-left: 0;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: var(--h2-font-size);
+}
+
+main ul li {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: var(--project-card-ratio);
+  box-shadow: var(--shadow);
+}
+
+.screenshot {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--h2-font-size);
+  padding: var(--screenshot-padding);
+  background: black;
+  color: white;
+}
+
+.project-heading {
+  padding: var(--project-card-padding);
+  display: flex;
+  justify-content: space-between;
+}
+
+h3 {
+  font-weight: normal;
+  font-size: var(--header-para-font-size);
+}
+
+.project-heading nav {
+  display: flex;
+  gap: var(--small-icon-height);
+  padding-right: var(--small-icon-height);
+}
+
+main li>p {
+  padding: var(--project-card-padding);
+  color: #615f5e;
+  font-family: var(--reading-font);
+}
+
+.small-icon {
+  max-width: var(--small-icon-height);
 }
