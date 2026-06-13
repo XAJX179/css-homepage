@@ -1,13 +1,79 @@
-:root {
-  background-color: lightgreen;
-  font-family: "PlayfairDisplay";
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
+
+/* 2. Remove default margin */
+*:not(dialog) {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Increase line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/* css reset ends here  */
 
 @font-face {
   font-family: "Roboto";
   src:
-    url("./fonts/Roboto-Medium.woff2") format("woff2"),
-    url("./fonts/Roboto-Medium.woff") format("woff");
+    url("./fonts/Roboto-Regular.woff2") format("woff2"),
+    url("./fonts/Roboto-Regular.woff") format("woff");
 }
 
 @font-face {
@@ -15,4 +81,93 @@
   src:
     url("./fonts/PlayfairDisplay-Regular.woff2") format("woff2"),
     url("./fonts/PlayfairDisplay-Regular.woff") format("woff");
+}
+
+:root {
+  /*  */
+  --fancy-font: "PlayfairDisplay";
+  --reading-font: "Roboto";
+
+  --body-margin: 4vw;
+
+  --about-card-padding: 0 2rem;
+  --about-card-img-ratio: 11/12;
+  --about-card-img-width: 38.5vw;
+
+  --icon-height: calc(var(--header-para-font-size) + 10px);
+
+  /* --caption-font-size: clamp(1rem, 10.5rem, 111rem); */
+  --caption-font-size: clamp(1rem, 6.55vi + 0.02rem, 10.5rem);
+  /* --h1-font-size: clamp(1rem, 6rem, 111rem); */
+  --h1-font-size: clamp(1rem, 3.44vi + 0.48rem, 6rem);
+  /* --header-para-font-size: clamp(0.2rem, 2.85rem, 111rem); */
+  --header-para-font-size: clamp(0.85rem, 1.79vi + -0.01rem, 2.85rem);
+
+  --header-margin: 5% 0;
+
+  --shadow: 0 0 10px rgb(0 0 0 / 20%);
+}
+
+body {
+  margin: var(--body-margin);
+  font-family: var(--fancy-font);
+  background: linear-gradient(165deg,
+      #0891b2 5%,
+      rgb(0 0 0 / 0) 0%);
+}
+
+.about-card {
+  display: flex;
+  padding: var(--about-card-padding);
+}
+
+.about-card figure img {
+  object-fit: cover;
+  aspect-ratio: var(--about-card-img-ratio);
+  max-width: var(--about-card-img-width);
+  box-shadow: var(--shadow);
+}
+
+.about-card figure {
+  position: relative;
+}
+
+.about-card figcaption {
+  white-space: pre;
+  font-size: var(--caption-font-size);
+  color: white;
+  position: absolute;
+  bottom: 0;
+  line-height: 1;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: var(--shadow);
+  margin: var(--header-margin);
+  padding: var(--about-card-padding);
+  background: white;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: var(--h1-font-size);
+}
+
+header p {
+  font-family: var(--reading-font);
+  font-size: var(--header-para-font-size);
+  color: #615f5e;
+}
+
+.icon {
+  max-height: var(--icon-height);
+}
+
+header nav {
+  align-self: end;
+  display: flex;
+  gap: 2rem;
 }
