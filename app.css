@@ -109,6 +109,8 @@ h6 {
   /* --h2-font-size: clamp(1rem, 2rem, 111rem); */
   --h2-font-size: clamp(2rem, 2.68vi + 0.71rem, 5rem);
 
+  --project-desc-font-size: clamp(1rem, 1.18vi + 0.12rem, 2rem);
+
   --header-margin: 5% 0;
   --mywork-margin: 10% 0;
   --project-card-ratio: 83/100;
@@ -248,6 +250,7 @@ main li>p {
   padding: var(--project-card-padding);
   color: #615f5e;
   font-family: var(--reading-font);
+  font-size: var(--project-desc-font-size);
 }
 
 .small-icon {
