@@ -305,3 +305,42 @@ footer nav {
   display: flex;
   gap: 2rem;
 }
+
+@media (max-width: 1200px) {
+  footer>img {
+    --footer-img-ratio: 3 / 4;
+    --footer-img-width: 40.5vw;
+  }
+
+  .about-card figure img {
+    --about-card-img-ratio: 9 / 10;
+  }
+
+  .about-card {
+    display: block;
+  }
+
+  .about-card figure {
+    display: inline;
+    bottom: 100px;
+  }
+
+  .about-card figcaption {
+    display: inline;
+  }
+
+  .about-card img {
+    display: inline;
+    float: left;
+  }
+
+  .about-card header {
+    display: inline;
+    padding: 30px;
+  }
+
+  main ul {
+    grid-template-columns: repeat(2, minmax(min-content, max-content));
+    grid-template-rows: repeat(3, min-content);
+  }
+}
