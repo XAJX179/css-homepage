@@ -318,25 +318,16 @@ footer nav {
 
   .about-card {
     display: block;
+    overflow: hidden;
   }
 
   .about-card figure {
-    display: inline;
-    bottom: 100px;
-  }
-
-  .about-card figcaption {
-    display: inline;
-  }
-
-  .about-card img {
-    display: inline;
     float: left;
+    margin-right: 10px;
   }
 
-  .about-card header {
+  header {
     display: inline;
-    padding: 30px;
   }
 
   main ul {
