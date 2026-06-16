@@ -282,7 +282,7 @@ footer p {
   font-style: normal;
   font-family: var(--reading-font);
   font-size: var(--header-para-font-size);
-  word-break: break-word;
+  word-break: break-all;
 }
 
 footer>img {
