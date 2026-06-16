@@ -88,7 +88,7 @@ h6 {
   --fancy-font: "PlayfairDisplay";
   --reading-font: "Roboto";
 
-  --body-margin: 4vw;
+  --body-margin: 4vw 4vw 0 4vw;
 
   --about-card-padding: 0 2rem;
   --about-card-img-ratio: 11/12;
@@ -121,6 +121,9 @@ h6 {
   --footer-padding: 2rem 2rem;
 
   --shadow: 0 0 10px rgb(0 0 0 / 20%);
+
+  --body-gradient-first-percentage: 25%;
+  --body-gradient-second-percentage: 27%;
 }
 
 body {
@@ -128,10 +131,10 @@ body {
   font-family: var(--fancy-font);
   background-image:
     linear-gradient(165deg,
-      #0891b2 25%,
+      #0891b2 var(--body-gradient-first-percentage),
       rgb(0 0 0 / 0) 0%),
     linear-gradient(to top,
-      #0891b2 27%,
+      #0891b2 var(--body-gradient-second-percentage),
       rgb(0 0 0 / 0) 0%);
 }
 
@@ -279,6 +282,7 @@ footer p {
   font-style: normal;
   font-family: var(--reading-font);
   font-size: var(--header-para-font-size);
+  word-break: break-word;
 }
 
 footer>img {
@@ -306,7 +310,16 @@ footer nav {
   gap: 2rem;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 771px) and (max-width: 1200px) {
+  :root {
+    --header-para-font-size: clamp(1.2rem, 3.11vi + -0.43rem, 1.9rem);
+  }
+
+  body {
+    --body-gradient-first-percentage: 17.2%;
+    --body-gradient-second-percentage: 20%;
+  }
+
   footer>img {
     --footer-img-ratio: 3 / 4;
     --footer-img-width: 40.5vw;
@@ -314,24 +327,129 @@ footer nav {
 
   .about-card figure img {
     --about-card-img-ratio: 9 / 10;
+    --about-card-img-width: 45vw;
+  }
+
+  .about-card figure figcaption {
+    top: 1rem;
+    right: -32vw;
   }
 
   .about-card {
-    display: block;
-    overflow: hidden;
+    display: flow-root;
+    padding: 0 2rem 0 0;
   }
 
   .about-card figure {
     float: left;
-    margin-right: 10px;
+    margin: 0 30px 10px 0;
   }
 
   header {
-    display: inline;
+    display: block;
+    padding-top: 3rem;
+    margin: calc(var(--caption-font-size) + 2rem) 0 0 2rem;
+  }
+
+  h1 {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  header p {
+    line-height: 2;
+  }
+
+  header nav {
+    justify-content: end;
+    padding: 3rem;
+    gap: 1rem;
   }
 
   main ul {
     grid-template-columns: repeat(2, minmax(min-content, max-content));
     grid-template-rows: repeat(3, min-content);
+  }
+
+  main {
+    margin: 10% 0 30% 0;
+  }
+
+}
+
+@media (max-width: 770px) {
+  :root {
+    --body-margin: 4vw 0 0 0;
+    --header-para-font-size: clamp(1.2rem, 3.11vi + -0.43rem, 1.9rem);
+    --caption-font-size: clamp(3rem, 14.22vi + 0.16rem, 7rem);
+
+    --body-gradient-first-percentage: 5%;
+    --body-gradient-second-percentage: 7%;
+  }
+
+  footer>img {
+    --footer-img-ratio: 3 / 4;
+    --footer-img-width: 40.5vw;
+  }
+
+  .about-card figure img {
+    --about-card-img-ratio: auto;
+    --about-card-img-width: calc(100vw - 4rem);
+    object-fit: cover;
+    max-height: 50vh;
+    min-width: var(--about-card-img-width);
+  }
+
+  .about-card {
+    --about-card-padding: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about-card figcaption {
+    text-wrap: wrap;
+  }
+
+  .about-card header {
+    box-shadow: initial;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .about-card header nav {
+    justify-content: center;
+    align-self: initial;
+    gap: 1rem;
+  }
+
+  main {
+    padding: 2rem;
+  }
+
+  main ul {
+    grid-template-columns: repeat(1, minmax(min-content, max-content));
+    grid-template-rows: repeat(6, min-content);
+  }
+
+  footer {
+    --footer-padding: 0;
+    flex-direction: column;
+  }
+
+  footer>img {
+
+    --footer-img-width: 100vw;
+  }
+
+  .contact-info {
+    padding: 2rem;
+  }
+
+  .contact-info h2 {
+    text-align: center;
+  }
+
+  .contact-info nav {
+    justify-content: center;
   }
 }
