@@ -406,6 +406,10 @@ footer nav {
     align-items: center;
   }
 
+  h1 {
+    font-size: var(--h2-font-size);
+  }
+
   .about-card figcaption {
     text-wrap: wrap;
   }
@@ -420,15 +424,21 @@ footer nav {
     justify-content: center;
     align-self: initial;
     gap: 1rem;
+    padding: 1rem;
   }
 
   main {
     padding: 2rem;
   }
 
+  main h2 {
+    text-align: center;
+  }
+
   main ul {
     grid-template-columns: repeat(1, minmax(min-content, max-content));
     grid-template-rows: repeat(6, min-content);
+    justify-content: center;
   }
 
   footer {
